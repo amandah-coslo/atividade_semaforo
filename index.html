@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="semaforo">
+        <div id="vermelho" class="vermelho"></div>
+        <div id="amarelo" class="amarelo"></div>
+        <div id="verde" class="verde"></div>
+    </div>
+    <input type="button" class="botao" id="iniciar" onclick="start()" value="Iniciar">
+    <input type="button" class="botao" id="manutencao" onclick="manu()" value="Manutencao">
+
+    <script type="application/javascript">
+        var vermelho = document.getElementById('vermelho');
+        var amarelo = document.getElementById('amarelo');
+        var verde = document.getElementById('verde');
+
+        let cont = 1;
+
+        setInterval(() => {
+            if(cont <= 1) {
+                verde.classList.add('verde-aceso');
+            } else if (cont === 20) {
+                amarelo.classList.add('amarelo-aceso');
+                verde.classList.remove('verde-aceso');
+            } else if (cont === 24) {
+                vermelho.classList.add('vermelho-aceso');
+                amarelo.classList.remove('amarelo-aceso');
+            } else if (cont === 34) {                
+                vermelho.classList.remove('vermelho-aceso');
+                contador = 0;
+            }
+            cont = cont + 1;
+        }, 1000);
+
+    </script>
+    
+</body>
+</html>

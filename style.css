@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#semaforo {
+    background-color: black;
+    width: 300px; 
+    height: 525px;
+    margin-left: 40px;
+    margin-top: 10px;
+    
+}
+
+#crono {
+    color: aliceblue;
+    margin-top: 2%;
+    margin-left: 25%;
+    font-size: 20px;
+}
+
+
+.vermelho {
+    background-color: red;
+    border-radius: 200px;
+	width:150px; 
+    height: 150px;
+	position: relative;
+    left: 25%;
+    top: 5%;
+}
+.vermelho-aceso {
+    background-color: rgb(250, 40, 40);
+    box-shadow: 0 0 20px 10px white;
+    border-radius: 200px;
+	width:150px; 
+    height: 150px;
+	position: relative;
+    left: 25%;
+    top: 5%;
+}
+
+
+.amarelo {
+    background-color: yellow;
+    border-radius: 200px;
+	width:150px; 
+    height: 150px;
+	position:relative;
+    left: 25%;
+    top: 7%;
+}
+.amarelo-aceso {
+    background-color: rgb(250, 250, 29);
+    box-shadow: 0 0 20px 10px white;
+    border-radius: 200px;
+	width:150px; 
+    height: 150px;
+	position:relative;
+    left: 25%;
+    top: 7%;
+}
+
+.verde {
+    background-color: green;
+    border-radius: 200px;
+	width:150px; 
+    height: 150px;
+	position:relative; 
+    left: 25%;
+    top: 9%;
+}
+.verde-aceso {
+    background-color: rgb(7, 167, 7);
+    box-shadow: 0 0 20px 10px white;
+    border-radius: 200px;
+	width:150px; 
+    height: 150px;
+	position:relative; 
+    left: 25%;
+    top: 9%;
+}
+
+.botao {
+    margin-left: 2%;
+    margin-top: 2%;
+    color: darkmagenta;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
