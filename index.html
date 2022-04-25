@@ -9,9 +9,9 @@
 </head>
 <body>
     <div id="semaforo">
-        <div id="vermelho" class="vermelho"></div>
-        <div id="amarelo" class="amarelo"></div>
-        <div id="verde" class="verde"></div>
+        <div id="vermelho" class="vermelho"><h4></h4></div>
+        <div id="amarelo" class="amarelo"><h4></h4></div>
+        <div id="verde" class="verde"><h4></h4></div>
     </div>
     <div id="semafora-pedestre">
         <div id="pedestre" class="pedestre"></div>
@@ -39,10 +39,11 @@
         let contAmarelo = 0;
         let contVerde = 0;
         let contVermelho = 0;
+        let contSemaforo = 0;
         // declaração de variáveis das funções setInterval de cada onclick
         var setCarro = undefined;
         var setManu = undefined;
-        //var setPedestre = undefined;
+        var setPedestre = undefined;
 
 //temporizador -> setTimeout, temporiza também, mas aos poucos
 // se estiver vermlho && amarelo esiver ligados
@@ -55,6 +56,7 @@
             // limpar qualquer uma das outras funções que estiver rodando
             clearInterval(setManu);
             clearInterval(setCarro);
+            clearInterval(setPedestre);
             // criação da função setInterval
             var setCarro = setInterval(function() {
                 // contador vai aumentando de 1 em 1
@@ -63,9 +65,15 @@
                 if(cont <= 20) {
                     // soma mais um ao contador verde e aparece na tela
                     contVerde += 1;
-                    verde.innerHTML = contVerde;
                     // aparece no console (p/ ver o funcionamento)
-                    console.log(contVerde);
+                    //console.log(contVerde);
+
+                    // acrescentar o zero no momento do contador
+                    document.getElementById('verde').innerHTML = "0" + contVerde;
+                    // tira o zero quando o contador estiver no 10
+                    if(cont >= 10) {
+                        document.getElementById('verde').innerHTML = "" + contVerde;
+                    }
 
                     // adiciona a cor verde no semaforo (css -> verdeAceso)
                     verde.classList.add('verdeAceso');
@@ -76,9 +84,14 @@
                 } else if (cont > 20 && cont <= 24) {
                     // soma mais um ao contador amarelo e aparece na tela 
                     contAmarelo += 1;
-                    amarelo.innerHTML = contAmarelo;
                     // aparece no console (p/ ver o funcionamento)
-                    console.log(contAmarelo);
+                    //console.log(contAmarelo);
+                    
+                    // apaga o contador verde                    
+                    document.getElementById('verde').innerHTML = "";
+                    // acrescentar o zero no momento do contador
+                    document.getElementById('amarelo').innerHTML = "0" + contAmarelo;
+                              
                     
                     // adiciona a cor amarela no semaforo (css -> amareloAceso)
                     amarelo.classList.add('amareloAceso');
@@ -91,9 +104,13 @@
                 } else if (cont > 24 && cont < 35) {
                     // soma mais um ao contador vermelho e aparece na tela
                     contVermelho += 1;
-                    vermelho.innerHTML = contVermelho;
                     // aparece no console (p/ ver o funcionamento)
-                    console.log(contVermelho);
+                    //console.log(contVermelho);
+
+                    // acrescentar o zero no momento do contador
+                    document.getElementById('vermelho').innerHTML = "0" + contVermelho;
+                    // apaga o contador amarelo    
+                    document.getElementById('amarelo').innerHTML = "";    
 
                     // adiciona a cor vermelha no semaforo (css -> vermelhoAceso)
                     vermelho.classList.add('vermelhoAceso');
@@ -105,7 +122,14 @@
                     // adiciona a cor verde, indicando que pode atravessar (css -> pedestreAceso)
                     pedestre.classList.add('pedestreAceso');
                 // senão se contador for exatamente igual a 35
-                } else if (cont === 35) {             
+                } else if (cont === 35) { 
+                    // tira o zero quando o contador estiver no 10
+                    if(cont >= 10) {
+                        document.getElementById('vermelho').innerHTML = "" + contVermelho;
+                    }
+                    // apaga o contador vermelho     
+                    document.getElementById('vermelho').innerHTML = "";
+
                     // remove a cor vermelha, adicionada no if anterior
                     vermelho.classList.remove('vermelhoAceso');
                     
@@ -129,6 +153,7 @@
             // limpar qualquer uma das outras funções que estiver rodando
             clearInterval(setCarro);
             clearInterval(setManu);
+            clearInterval(setPedestre);
             // se botão Manutenção for acionado/clicado
             if(btnManutencao) {
                 // adiciona a cor amarela no semaforo (css -> amareloAceso)
@@ -177,6 +202,29 @@
                 // o tempo para piscar, a cor amarela é de meio em meio segundo
                 }, 500);
             } 
+        }
+
+        // função do botão Pedestre
+        var startPedestre = function() {
+            // limpar qualquer uma das outras funções que estiver rodando
+            clearInterval(setCarro);
+            clearInterval(setManu);
+            clearInterval(setPedestre);
+            // contador vai aumentando de 1 em 1
+            contSemaforo += 1;
+            // criação da função setInterval
+            var setPedestre = setInterval(function() {
+                // se contador semaforo for menor igual 19 e maior igual a 3
+                if (contSemaforo <= 19 && contSemaforo >=3) {
+                    // contador zera
+                    contSemaforo = 0;
+                    // quando o contador geral estiver no 21 (amarelo), aparece
+                    cont = 21;
+                    // chamada da função
+                    startCarro();
+                }
+            // o tempo para piscar, entre as cores e o contador é de 1 em 1 segundo
+            }, 1000);
         }
     </script>   
 </body>

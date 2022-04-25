@@ -24,6 +24,13 @@
 	position: relative;
     left: 25%;
     top: 5%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 /*semaforo - vermelho pisca*/
@@ -47,6 +54,13 @@
 	position:relative;
     left: 25%;
     top: 7%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 /*semaforo - amarelo pisca*/
@@ -70,6 +84,14 @@
 	position:relative; 
     left: 25%;
     top: 9%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    color:black;
+    font-size: 20px;
+    font-weight: 600;
+
 }
 
 /*semaforo - verde pisca*/
@@ -131,8 +153,3 @@
     left: 25%;
     top: 20%;
 }
-
-/*botao passar - pedestre
-#passar {
-    margin-left: 200px;
-}*/
